@@ -1,0 +1,59 @@
+### Exemplo de uso da API
+
+### 1. Health Check
+GET http://localhost:3000/api/health
+X-API-Key: your-api-key-here
+
+### 2. Registrar usuário
+POST http://localhost:3000/api/auth/register
+X-API-Key: your-api-key-here
+Content-Type: application/json
+
+{
+  "usuario": "joao.silva",
+  "nome": "João Silva",
+  "email": "joao@email.com",
+  "senha": "senha123"
+}
+
+### 3. Login
+POST http://localhost:3000/api/auth/login
+X-API-Key: your-api-key-here
+Content-Type: application/json
+
+{
+  "usuario": "joao.silva",
+  "senha": "senha123"
+}
+
+### 4. Listar permissões (requer ADMIN)
+GET http://localhost:3000/api/permissions
+X-API-Key: your-api-key-here
+Authorization: Bearer YOUR_JWT_TOKEN
+
+### 5. Criar permissão (requer ADMIN)
+POST http://localhost:3000/api/permissions
+X-API-Key: your-api-key-here
+Authorization: Bearer YOUR_JWT_TOKEN
+Content-Type: application/json
+
+{
+  "nome": "USER_MANAGER",
+  "descricao": "Gerenciar usuários"
+}
+
+### 6. Atribuir permissão (requer ADMIN)
+POST http://localhost:3000/api/permissions/assign
+X-API-Key: your-api-key-here
+Authorization: Bearer YOUR_JWT_TOKEN
+Content-Type: application/json
+
+{
+  "usuarioId": "USER_ID_HERE",
+  "permissaoId": "PERMISSION_ID_HERE"
+}
+
+### 7. Minhas permissões
+GET http://localhost:3000/api/permissions/my
+X-API-Key: your-api-key-here
+Authorization: Bearer YOUR_JWT_TOKEN

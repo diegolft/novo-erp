@@ -1,0 +1,50 @@
+{
+  "name": "novo-erp",
+  "version": "1.0.0",
+  "description": "ERP Backend with Clean Architecture",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx watch src/index.ts",
+    "db:generate": "drizzle-kit generate:pg",
+    "db:migrate": "drizzle-kit push:pg",
+    "db:studio": "drizzle-kit studio",
+    "init-db": "node scripts/init-db.js",
+    "test": "jest"
+  },
+  "keywords": ["erp", "backend", "typescript", "clean-architecture"],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diegolft/novo-erp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/diegolft/novo-erp/issues"
+  },
+  "homepage": "https://github.com/diegolft/novo-erp#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "bcrypt": "^5.1.1",
+    "jsonwebtoken": "^9.0.2",
+    "drizzle-orm": "^0.29.0",
+    "postgres": "^3.4.3",
+    "dotenv": "^16.3.1",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/express": "^4.17.21",
+    "@types/cors": "^2.8.17",
+    "@types/bcrypt": "^5.0.2",
+    "@types/jsonwebtoken": "^9.0.5",
+    "typescript": "^5.3.2",
+    "tsx": "^4.6.0",
+    "drizzle-kit": "^0.20.6",
+    "jest": "^29.7.0",
+    "@types/jest": "^29.5.8"
+  }
+}
