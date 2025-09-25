@@ -1,19 +1,14 @@
 import { Router } from 'express';
 import { PermissionController } from '../controllers/PermissionController';
-import { ApiKeyMiddleware } from '../middlewares/ApiKeyMiddleware';
 import { AuthMiddleware } from '../middlewares/AuthMiddleware';
 import { AclMiddleware } from '../middlewares/AclMiddleware';
 import { LoggingMiddleware } from '../middlewares/LoggingMiddleware';
 
 const router = Router();
 const permissionController = new PermissionController();
-const apiKeyMiddleware = new ApiKeyMiddleware();
 const authMiddleware = new AuthMiddleware();
 const aclMiddleware = new AclMiddleware();
 const loggingMiddleware = new LoggingMiddleware();
-
-// Aplicar middleware de API Key em todas as rotas
-router.use(apiKeyMiddleware.validate);
 
 // Aplicar middleware de autenticação em todas as rotas
 router.use(authMiddleware.authenticate);
