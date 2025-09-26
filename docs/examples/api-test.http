@@ -26,3 +26,44 @@ Content-Type: application/json
   "senha": "senha123"
 }
 
+### 4. Listar fornecedores
+GET http://localhost:3000/api/fornecedores
+X-API-Key: your-api-key-here
+Authorization: Bearer YOUR_JWT_TOKEN
+
+### 5. Buscar fornecedor por ID
+GET http://localhost:3000/api/fornecedores/1
+X-API-Key: your-api-key-here
+Authorization: Bearer YOUR_JWT_TOKEN
+
+### 6. Criar fornecedor
+POST http://localhost:3000/api/fornecedores
+X-API-Key: your-api-key-here
+Authorization: Bearer YOUR_JWT_TOKEN
+Content-Type: application/json
+
+{
+  "empresa": "Empresa ABC Ltda",
+  "fornecedor": "João Silva",
+  "origem": "nacional",
+  "comprador": "Maria Santos"
+}
+
+### 7. Atualizar fornecedor
+PUT http://localhost:3000/api/fornecedores/1
+X-API-Key: your-api-key-here
+Authorization: Bearer YOUR_JWT_TOKEN
+Content-Type: application/json
+
+{
+  "empresa": "Empresa ABC Ltda",
+  "fornecedor": "João Silva",
+  "origem": "importado",
+  "comprador": "Pedro Oliveira"
+}
+
+### 8. Deletar fornecedor
+DELETE http://localhost:3000/api/fornecedores/1
+X-API-Key: your-api-key-here
+Authorization: Bearer YOUR_JWT_TOKEN
+

@@ -3,6 +3,7 @@ import { TokenService } from '../../infrastructure/services/TokenService';
 
 export interface AuthenticatedRequest extends Request {
   user?: {
+    id: string;
     userId: string;
     usuario: string;
   };
@@ -31,7 +32,11 @@ export class AuthMiddleware {
       return;
     }
 
-    req.user = decoded;
+    req.user = {
+      id: decoded.userId,
+      userId: decoded.userId,
+      usuario: decoded.usuario
+    };
     next();
   };
 }
