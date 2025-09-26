@@ -1,0 +1,5 @@
+{
+  "driver": "pg",
+  "out": "./drizzle",
+  "schema": "./src/infrastructure/database/schema.ts"
+}

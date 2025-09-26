@@ -26,34 +26,3 @@ Content-Type: application/json
   "senha": "senha123"
 }
 
-### 4. Listar permissões (requer ADMIN)
-GET http://localhost:3000/api/permissions
-X-API-Key: your-api-key-here
-Authorization: Bearer YOUR_JWT_TOKEN
-
-### 5. Criar permissão (requer ADMIN)
-POST http://localhost:3000/api/permissions
-X-API-Key: your-api-key-here
-Authorization: Bearer YOUR_JWT_TOKEN
-Content-Type: application/json
-
-{
-  "nome": "USER_MANAGER",
-  "descricao": "Gerenciar usuários"
-}
-
-### 6. Atribuir permissão (requer ADMIN)
-POST http://localhost:3000/api/permissions/assign
-X-API-Key: your-api-key-here
-Authorization: Bearer YOUR_JWT_TOKEN
-Content-Type: application/json
-
-{
-  "usuarioId": "USER_ID_HERE",
-  "permissaoId": "PERMISSION_ID_HERE"
-}
-
-### 7. Minhas permissões
-GET http://localhost:3000/api/permissions/my
-X-API-Key: your-api-key-here
-Authorization: Bearer YOUR_JWT_TOKEN

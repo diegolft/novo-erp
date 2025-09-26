@@ -21,18 +21,3 @@ export const logs = pgTable('logs', {
   criadoEm: timestamp('criado_em').notNull().defaultNow()
 });
 
-export const permissions = pgTable('permissions', {
-  id: uuid('id').primaryKey().defaultRandom(),
-  nome: varchar('nome', { length: 100 }).notNull().unique(),
-  descricao: text('descricao').notNull(),
-  ativo: boolean('ativo').notNull().default(true),
-  criadoEm: timestamp('criado_em').notNull().defaultNow()
-});
-
-export const userPermissions = pgTable('user_permissions', {
-  id: uuid('id').primaryKey().defaultRandom(),
-  usuarioId: uuid('usuario_id').notNull().references(() => users.id),
-  permissaoId: uuid('permissao_id').notNull().references(() => permissions.id),
-  ativo: boolean('ativo').notNull().default(true),
-  criadoEm: timestamp('criado_em').notNull().defaultNow()
-});
