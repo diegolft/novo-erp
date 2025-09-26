@@ -1,4 +1,4 @@
-import { eq, and, like, sql } from 'drizzle-orm';
+import { eq, and, like, sql, desc } from 'drizzle-orm';
 import { db } from '../database/connection';
 import { fornecedores } from '../database/schema';
 import { IFornecedorRepository } from '../../domain/repositories/IFornecedorRepository';
@@ -29,7 +29,9 @@ export class FornecedorRepository implements IFornecedorRepository {
   }
 
   async findAll(): Promise<Fornecedor[]> {
-    const result = await db.select().from(fornecedores);
+    const result = await db.select()
+      .from(fornecedores)
+      .orderBy(desc(fornecedores.id));
     
     return result.map(fornecedor => ({
       id: fornecedor.id,
@@ -61,7 +63,8 @@ export class FornecedorRepository implements IFornecedorRepository {
   async findByEmpresa(empresa: string): Promise<Fornecedor[]> {
     const result = await db.select()
       .from(fornecedores)
-      .where(like(fornecedores.empresa, `%${empresa}%`));
+      .where(like(fornecedores.empresa, `%${empresa}%`))
+      .orderBy(desc(fornecedores.id));
     
     return result.map(fornecedor => ({
       id: fornecedor.id,
@@ -77,7 +80,8 @@ export class FornecedorRepository implements IFornecedorRepository {
   async findByFornecedor(fornecedor: string): Promise<Fornecedor[]> {
     const result = await db.select()
       .from(fornecedores)
-      .where(like(fornecedores.fornecedor, `%${fornecedor}%`));
+      .where(like(fornecedores.fornecedor, `%${fornecedor}%`))
+      .orderBy(desc(fornecedores.id));
     
     return result.map(fornecedor => ({
       id: fornecedor.id,
@@ -93,7 +97,8 @@ export class FornecedorRepository implements IFornecedorRepository {
   async findByComprador(comprador: string): Promise<Fornecedor[]> {
     const result = await db.select()
       .from(fornecedores)
-      .where(like(fornecedores.comprador, `%${comprador}%`));
+      .where(like(fornecedores.comprador, `%${comprador}%`))
+      .orderBy(desc(fornecedores.id));
     
     return result.map(fornecedor => ({
       id: fornecedor.id,
